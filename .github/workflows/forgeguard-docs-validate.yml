@@ -1,0 +1,60 @@
+# ForgeGuard overlay: documentation and metadata validation.
+# This is the only ForgeGuard workflow: the fork publishes no build artifacts.
+name: ForgeGuard docs validation
+
+on:
+  pull_request:
+    paths:
+      - README.md
+      - SUPPORT.md
+      - FORK_UPSTREAM_BASE
+      - .forgeguard/**
+      - docs/site/**
+      - docs/maintainers/**
+      - .github/workflows/forgeguard-*.yml
+  push:
+    branches: [main]
+    paths:
+      - README.md
+      - SUPPORT.md
+      - FORK_UPSTREAM_BASE
+      - .forgeguard/**
+      - docs/site/**
+      - docs/maintainers/**
+      - .github/workflows/forgeguard-*.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: forgeguard-docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # actions/checkout v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          # Full history so the diff against the default branch can be computed.
+          fetch-depth: 0
+      # actions/setup-python v7.0.0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.13"
+
+      - name: Install validation dependencies
+        run: python3 -m pip install --disable-pip-version-check pyyaml==6.0.2 jsonschema==4.26.0
+
+      - name: Validate ForgeGuard overlay
+        run: python3 .forgeguard/scripts/validate_overlay.py --base origin/main
+
+      - name: Markdown lint (ForgeGuard-owned docs only)
+        run: |
+          npx --yes markdownlint-cli2@0.18.1 \
+            "docs/site/**/*.md" "docs/maintainers/**/*.md" "README.md" "SUPPORT.md" \
+            "!docs/site/fork/upstream-readme.md" \
+            || echo "::warning::markdownlint reported issues (non-blocking)"

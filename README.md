@@ -1,102 +1,125 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vllm-project/vllm-omni/refs/heads/main/docs/source/logos/vllm-omni-logo.png">
-    <img alt="vllm-omni" src="https://raw.githubusercontent.com/vllm-project/vllm-omni/refs/heads/main/docs/source/logos/vllm-omni-logo.png" width=55%>
-  </picture>
-</p>
-<h3 align="center">
-Easy, fast, and cheap omni-modality model serving for everyone
-</h3>
+<div align="center">
 
-<p align="center">
-| <a href="https://vllm-omni.readthedocs.io/en/latest/"><b>Documentation</b></a> | <a href="https://deepwiki.com/vllm-project/vllm-omni"><b>DeepWiki</b></a> | <a href="https://discuss.vllm.ai"><b>User Forum</b></a> | <a href="https://slack.vllm.ai"><b>Developer Slack</b></a> | <a href="docs/assets/WeChat.jpg"><b>WeChat</b></a> | <a href="https://arxiv.org/abs/2602.02204"><b>Paper</b></a> | <a href="https://docs.google.com/presentation/d/111-L8zF7A1j_YI_cR8JsblofdScdRr2f/edit?usp=sharing&ouid=110473603432222024453&rtpof=true&sd=true"><b>Slides</b></a> |
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/site/assets/repository/banner-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="./docs/site/assets/repository/banner-light.png">
+  <img src="./docs/site/assets/repository/banner-dark.png" alt="ForgeGuard AI — vLLM Omni. ForgeGuard-maintained downstream fork of the vLLM Omni project by vllm-project/vllm-omni." width="100%">
+</picture>
 
+<br>
+
+<a href="./docs/site/index.md"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-Read-263746?style=for-the-badge"></a>
+<a href="https://github.com/vllm-project/vllm-omni"><img alt="Upstream" src="https://img.shields.io/badge/Upstream-vllm--project-3A6EA5?style=for-the-badge"></a>
+<a href="./LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache--2.0-5C5C5C?style=for-the-badge"></a>
+<a href="./docs/site/fork/security.md"><img alt="Security policy" src="https://img.shields.io/badge/Security-Policy-BE4D24?style=for-the-badge"></a>
+
+**ForgeGuard-maintained downstream fork of vLLM Omni — documentation and attribution only. No ForgeGuard build artifacts are published.**
+
+[Upstream project](https://github.com/vllm-project/vllm-omni) · [Upstream docs](https://github.com/vllm-project/vllm-omni) ·
+[Documentation](./docs/site/index.md) · [Support](./SUPPORT.md)
+
+</div>
+
+> ### Maintained fork
+>
+> This repository is a **ForgeGuard-maintained downstream fork** of
+> [**vLLM Omni**](https://github.com/vllm-project/vllm-omni).
+>
+> vLLM Omni is created, owned, and developed by [`vllm-project/vllm-omni`](https://github.com/vllm-project/vllm-omni).
+> ForgeGuard did not create it and claims no ownership of it, its name, or its logo.
+> **ForgeGuard-specific documentation is not endorsed, supported, or reviewed by the upstream
+> project.**
+>
+> For product documentation, always use upstream: <https://github.com/vllm-project/vllm-omni>
+
+> ### ForgeGuard publishes no build artifacts for this repository
+>
+> There is **no ForgeGuard container image, no ForgeGuard package, and no ForgeGuard
+> release**. Nothing is published to GHCR, npm, or PyPI under the ForgeGuard name.
+>
+> This fork exists for documentation and attribution. To install or run the software,
+> use the upstream project's own distribution.
+
+| | |
+|---|---|
+| **Upstream project** | [`vllm-project/vllm-omni`](https://github.com/vllm-project/vllm-omni) |
+| **This fork tracks** | an untagged development commit (`9f3a73df1775`) of the upstream default branch — **not an upstream release** |
+| **Upstream license** | Apache-2.0 — see [`LICENSE`](./LICENSE) |
+| **ForgeGuard artifacts** | none published |
+
+**Links:** [ForgeGuard docs](./docs/site/index.md) ·
+[Upstream docs](https://github.com/vllm-project/vllm-omni) ·
+[Upstream README (preserved)](./docs/site/fork/upstream-readme.md) ·
+[Security policy](./docs/site/fork/security.md) ·
+[Support boundary](./SUPPORT.md) ·
+[License](./LICENSE) ·
+[Fork base](./FORK_UPSTREAM_BASE)
 
 ---
 
-*Latest News* 🔥
-- [2026/07] We released [0.24.0](https://github.com/vllm-project/vllm-omni/releases/tag/v0.24.0) - aligned with the vLLM 0.24 release line, expanding production-ready coverage across TTS, speech, diffusion, image/video generation, and robot-policy serving, with major Omni stage runtime refactoring, diffusion request-level batching, async output materialization, quantization/cache/memory improvements, and broad CUDA/ROCm/XPU/NPU support.
-- [2026/06] We released [0.22.0](https://github.com/vllm-project/vllm-omni/releases/tag/v0.22.0) - an **omnimodal world-model** release aligned with vLLM 0.22, featuring [Nvidia Cosmos3](recipes/cosmos3/Cosmos3-Nano.md)/DreamZero world model support, expanded quantization coverage across Blackwell/NPU/XPU, TTS production improvements, new models including MiniCPM-o 4.5, MOSS-TTS, and Lance, plus RL integration with [VeRL-Omni](https://github.com/verl-project/verl-omni).
-- [2026/05] We released [0.20.0](https://github.com/vllm-project/vllm-omni/releases/tag/v0.20.0) - refreshes the serving/runtime stack for large-scale omni workloads, and improves diffusion model performance, quantization, and hardware readiness across CUDA, ROCm, MUSA, NPU, and XPU backends.
-- [2026/03] We released [0.18.0](https://github.com/vllm-project/vllm-omni/releases/tag/v0.18.0) - strengthens the core runtime through a large entrypoint refactor and scheduler/runtime cleanups, expands unified quantization and diffusion execution, broadens multimodal model coverage, and improves production readiness across audio, omni, image, video, RL, and multi-platform deployments.
-- [2026/03] Check out our first public [project deepdive](https://youtu.be/sgwNfsNnR9I) at the vLLM Hong Kong Meetup!
-- [2026/03] **[vllm-omni-skills](https://github.com/hsliuustc0106/vllm-omni-skills)** is a community-driven collection of AI assistant skills that help developers work with vLLM-Omni more effectively. These skills can be used with popular agentic AI coding assistants like **Cursor IDE**, **Claude**, **Codex**, and more.
-- [2026/02] We released [0.16.0](https://github.com/vllm-project/vllm-omni/releases/tag/v0.16.0) - A major alignment + capability release that rebases onto **upstream vLLM v0.16.0** and significantly expands performance, distributed execution, and production readiness across **Qwen3-Omni / Qwen3-TTS**, **Bagel**, **MiMo-Audio**, **GLM-Image** and the **Diffusion (DiT) image/video stack**—while also improving platform coverage (CUDA / ROCm / NPU / XPU), CI quality, and documentation.
-- [2026/02] We released [0.14.0](https://github.com/vllm-project/vllm-omni/releases/tag/v0.14.0) - This is the first **stable release** of vLLM-Omni that expands Omni’s diffusion / image-video generation and audio / TTS stack, improves distributed execution and memory efficiency, and broadens platform/backend coverage (GPU/ROCm/NPU/XPU). It also brings meaningful upgrades to serving APIs, profiling & benchmarking, and overall stability. Please check our latest [paper](https://arxiv.org/abs/2602.02204) for architecture design and performance results.
-- [2025/11] vLLM community officially released [vllm-project/vllm-omni](https://github.com/vllm-project/vllm-omni) in order to support omni-modality models serving.
+## What vLLM Omni is
 
----
+vLLM Omni is an upstream project maintained at [`vllm-project/vllm-omni`](https://github.com/vllm-project/vllm-omni).
+This fork does not change what it is or how it works.
 
-## About
+The upstream README from this fork's base commit is preserved verbatim at
+[`docs/site/fork/upstream-readme.md`](./docs/site/fork/upstream-readme.md), and authoritative
+product documentation lives at <https://github.com/vllm-project/vllm-omni>.
 
-[vLLM](https://github.com/vllm-project/vllm) was originally designed to support large language models for text-based autoregressive generation tasks. vLLM-Omni is a framework that extends its support for omni-modality model inference and serving:
+## How to install and run it
 
-- **Omni-modality**: Text, image, audio, video, and action data processing
-- **Non-autoregressive Architectures**: extend the AR support of vLLM to Diffusion Transformers (DiT) and other parallel generation models
-- **Heterogeneous outputs**: from traditional text generation to multimodal and action outputs
+vLLM Omni is installed from the upstream project. It is tightly coupled to a matching vLLM release line: the `docker/Dockerfile.cuda` shipped at `v0.24.1` builds on `vllm/vllm-openai:v0.24.0`. Follow the upstream README and `docker/` directory at the pinned tag for the supported installation and serving recipes.
 
-<p align="center">
-  <picture>
-    <img alt="vllm-omni" src="https://raw.githubusercontent.com/vllm-project/vllm-omni/refs/heads/main/docs/source/architecture/omni-modality-model-architecture.png" width=55%>
-  </picture>
-</p>
+Use upstream's installation instructions at <https://github.com/vllm-project/vllm-omni>. ForgeGuard does not publish an
+alternative distribution of this software.
 
-vLLM-Omni is fast with:
+> **This fork is not a release channel.** Its default branch tracks
+> an untagged development commit (`9f3a73df1775`) of the upstream default branch — **not an upstream release**. Install from an upstream
+> release rather than from this fork's branch state.
 
-- State-of-the-art AR support by leveraging efficient KV cache management from vLLM
-- Pipelined stage execution overlapping for high throughput performance
-- Fully disaggregation based on OmniConnector and dynamic resource allocation across stages
+## What ForgeGuard adds
 
-vLLM-Omni is flexible and easy to use with:
+- Clear upstream attribution, licensing, and support-boundary documentation.
+- A recorded fork base in [`FORK_UPSTREAM_BASE`](./FORK_UPSTREAM_BASE), verified in CI.
+- A documented upstream-sync process.
 
-- Heterogeneous pipeline abstraction to manage complex model workflows
-- Seamless integration with popular Hugging Face models
-- Tensor, pipeline, data and expert parallelism support for distributed inference
-- Streaming outputs
-- OpenAI-compatible API server
+## What ForgeGuard does not add
 
-vLLM-Omni seamlessly supports most popular open-source models on HuggingFace, including:
+- **No container image, package, or release.** Nothing is published under the ForgeGuard name.
+- No change to vLLM Omni source code, behavior, or licensing.
+- No support commitment from the upstream project for anything ForgeGuard writes here.
 
-- **Omni-modality models** (e.g. Qwen3-Omni, Cosmos3, HunyuanImage, BAGEL)
-- **TTS models** (e.g. Qwen3-TTS, VoxCPM2, Ming-Omni-TTS, CosyVoice3)
-- **Diffusion models** — image, video, and audio generation (e.g. Qwen-Image, Wan2.2, FLUX)
-- **Robot-policy and action models** (e.g. GR00T-N1.7, DreamZero-DROID, InternVLA-A1, Cosmos3 action policy)
+## Things worth knowing
 
-## Getting Started
+- vLLM Omni is strictly version-coupled to vLLM; a given vLLM Omni release expects a matching vLLM release line.
+- Different omni pipelines need different launchers, ports, and stage counts. There is no single universal serving command.
 
-Visit our [documentation](https://vllm-omni.readthedocs.io/en/latest/) to learn more.
+These are properties of vLLM Omni itself, not of anything ForgeGuard built. Verify against
+upstream documentation before relying on them.
 
-- [Installation](https://vllm-omni.readthedocs.io/en/latest/getting_started/installation/)
-- [Quickstart](https://vllm-omni.readthedocs.io/en/latest/getting_started/quickstart/)
-- [List of Supported Models](https://vllm-omni.readthedocs.io/en/latest/models/supported_models/)
-- [Deployment Recipes](https://recipes.vllm.ai) for vLLM-Omni model serving
+## Security
 
-## Contributing
+Do not report suspected vulnerabilities in a public issue. See
+[the security policy](./docs/site/fork/security.md); vulnerabilities in vLLM Omni itself go
+upstream.
 
-We welcome and value any contributions and collaborations.
-Please check out [Contributing to vLLM-Omni](https://vllm-omni.readthedocs.io/en/latest/contributing/) for how to get involved.
+## Support
 
-## Citation
+| Topic | Report to |
+|---|---|
+| ForgeGuard documentation or attribution | [ForgeGuard issues](https://github.com/forgeguard-ai/vllm-omni/issues) |
+| vLLM Omni defects, performance, model support, features | [Upstream issues](https://github.com/vllm-project/vllm-omni/issues) |
 
-If you use vLLM-Omni for your research, please cite our [paper](https://arxiv.org/abs/2602.02204):
+Reproduce product defects against the official upstream distribution before reporting them
+upstream. See [`SUPPORT.md`](./SUPPORT.md).
 
-```bibtex
-@article{yin2026vllmomni,
-  title={vLLM-Omni: Fully Disaggregated Serving for Any-to-Any Multimodal Models},
-  author={Peiqi Yin, Jiangyun Zhu, Han Gao, Chenguang Zheng, Yongxiang Huang, Taichang Zhou, Ruirui Yang, Weizhi Liu, Weiqing Chen, Canlin Guo, Didan Deng, Zifeng Mo, Cong Wang, James Cheng, Roger Wang, Hongsheng Liu},
-  journal={arXiv preprint arXiv:2602.02204},
-  year={2026}
-}
-```
+## License and attribution
 
-## Join the Community
-Feel free to ask questions, provide feedbacks and discuss with fellow users of vLLM-Omni in `#sig-omni` slack channel at [slack.vllm.ai](https://slack.vllm.ai) or vLLM user forum at [discuss.vllm.ai](https://discuss.vllm.ai).
+vLLM Omni is distributed under the **Apache-2.0**. Apache License 2.0, verified in the tagged source tree.
 
-## Star History
+The upstream [`LICENSE`](./LICENSE), copyright notices, and any `NOTICE` material are preserved
+unchanged. ForgeGuard documentation does not relicense upstream code.
 
-[![Star History Chart](https://api.star-history.com/svg?repos=vllm-project/vllm-omni&type=date&legend=top-left)](https://www.star-history.com/#vllm-project/vllm-omni&type=date&legend=top-left)
-
-## License
-
-Apache License 2.0, as found in the [LICENSE](./LICENSE) file.
+ForgeGuard claims no ownership of vLLM Omni, its name, its logo, or its trademarks. Nothing
+here implies that [`vllm-project/vllm-omni`](https://github.com/vllm-project/vllm-omni) created, endorses, sponsors, or supports this
+fork. See [upstream attribution](./docs/site/fork/upstream.md).

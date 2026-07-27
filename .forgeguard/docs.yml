@@ -1,0 +1,30 @@
+$schema: ./schemas/docs.schema.json
+version: 1
+enabled: true
+
+project:
+  slug: "vllm-omni"
+  title: "vLLM Omni"
+  kind: "maintained-fork"
+  summary: "ForgeGuard-maintained downstream fork of vLLM Omni. Documentation and attribution only; no build artifacts are published."
+
+repository:
+  owner: forgeguard-ai
+  name: "vllm-omni"
+  default_branch: main
+
+source:
+  content_root: docs/site
+  entrypoint: index.md
+
+publishing:
+  route: "/projects/vllm-omni/docs"
+  versions: "default-branch"
+  include_generated: false
+
+upstream:
+  repository: "vllm-project/vllm-omni"
+  tracking_policy: >-
+    Documentation-only downstream fork. The default branch mirrors upstream and is refreshed
+    through the process in docs/maintainers/upstream-sync/. ForgeGuard publishes no container
+    image, package, or release, and this fork is not a release channel.
